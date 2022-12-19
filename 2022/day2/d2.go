@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"strings"
 
 	"github.com/Drumzy/aoc/2022/utils"
 )
@@ -37,7 +35,7 @@ var resultsP2 = map[string]int{
 }
 
 func solvePart1(input string) int {
-	rounds := cleanseRounds(input)
+	rounds := utils.CleanseInput(input)
 	var sum = 0
 	for _, round := range rounds {
 		sum += resultsP1[string(string(round[0])+" "+string(round[2]))]
@@ -45,16 +43,10 @@ func solvePart1(input string) int {
 	return sum
 }
 func solvePart2(input string) int {
-	rounds := cleanseRounds(input)
+	rounds := utils.CleanseInput(input)
 	var sum = 0
 	for _, round := range rounds {
 		sum += resultsP2[string(string(round[0])+" "+string(round[2]))]
 	}
 	return sum
-}
-func cleanseRounds(input string) []string {
-	rawInput, err := os.ReadFile(input)
-	utils.CheckError(err)
-	rounds := strings.Split(string(rawInput), "\n")
-	return rounds
 }
