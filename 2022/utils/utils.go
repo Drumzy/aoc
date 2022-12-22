@@ -33,6 +33,7 @@ func IntParser(pair []string) (start int, end int) {
 	return
 }
 
+// Day4
 type ElfPair struct {
 	Start int
 	End   int
